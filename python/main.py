@@ -9,10 +9,10 @@ from tkinter import messagebox
 
 
 def createBaseFolder():
-    directory = "TropixeelLauncher"
-    parent_dir = "C:/"
-    path2 = os.path.join(parent_dir, directory)
-    os.mkdir(path2)
+    directory9 = "TropixeelLauncher"
+    parent_dir9 = "C:/"
+    path268 = os.path.join(parent_dir9, directory9)
+    os.mkdir(path268)
 
 
 def downloadAndExtract():
@@ -43,12 +43,14 @@ def launch():
 
 def mbox():
     messagebox.showinfo("Éxécution",
-                        "Téléchargement des ressources et lancement du jeu, le launcher va dfreeze le temps du téléchargement puis le jeu va ce lancer.")
+                        "Téléchargement des ressources et lancement du jeu, le launcher va dfreeze le temps du "
+                        "téléchargement puis le jeu va ce lancer.")
 
 
 path = "C:/TropixeelLauncher"
+path9 = "C:/TropixeelLauncher/Minecraft"
 
-if os.path.exists(path):
+if os.path.exists(path9):
     root = Tk()
     frame1 = Frame(root)
     frame2 = Frame(root)
@@ -82,39 +84,83 @@ if os.path.exists(path):
 
     root.mainloop()
 
+if os.path.exists(path):
+
+    directory1 = "Minecraft"
+    parent_dir1 = "C:/TropixeelLauncher"
+    path3 = os.path.join(parent_dir1, directory1)
+    os.mkdir(path3)
+    root = Tk()
+    frame1 = Frame(root)
+    frame2 = Frame(root)
+    root.title("Tropixeel Launcher")
+    root.geometry('600x300')
+
+    bg = PhotoImage(file="bg.png")
+
+    label1 = Label(root, image=bg)
+    label1.place(x=0, y=0)
+
+    root.resizable(False, False)
+
+    T = Text(root, height=1, width=20, )
+
+    # Create label
+
+    # exit button
+    exit_button = Button(
+        root,
+        text='Lancer!',
+        command=lambda: launch()
+    )
+
+    T.place(rely=0.31, relx=0.743, anchor='center', height=29)
+    exit_button.place(
+        relx=0.295,
+        rely=0.5,
+        height=30
+    )
+
+    root.mainloop()
 
 else:
-    createBaseFolder()
-root = Tk()
-frame1 = Frame(root)
-frame2 = Frame(root)
-root.title("Tropixeel Launcher")
-root.geometry('600x300')
+    directory = "TropixeelLauncher"
+    parent_dir = "C:/"
+    path2 = os.path.join(parent_dir, directory)
+    os.mkdir(path2)
+    directory1 = "Minecraft"
+    parent_dir1 = "C:/TropixeelLauncher"
+    path3 = os.path.join(parent_dir1, directory1)
+    os.mkdir(path3)
+    root = Tk()
+    frame1 = Frame(root)
+    frame2 = Frame(root)
+    root.title("Tropixeel Launcher")
+    root.geometry('600x300')
 
-bg = PhotoImage(file="bg.png")
+    bg = PhotoImage(file="bg.png")
 
-label1 = Label(root, image=bg)
-label1.place(x=0, y=0)
+    label1 = Label(root, image=bg)
+    label1.place(x=0, y=0)
 
-root.resizable(False, False)
+    root.resizable(False, False)
 
-T = Text(root, height=1, width=20, )
+    T = Text(root, height=1, width=20, )
 
-# Create label
+    # Create label
 
-# exit button
-exit_button = Button(
-    root,
-    text='Lancer!',
-    command=lambda: launch()
-)
+    # exit button
+    exit_button = Button(
+        root,
+        text='Lancer!',
+        command=lambda: launch()
+    )
 
-T.place(rely=0.31, relx=0.743, anchor='center', height=29)
-exit_button.place(
-    relx=0.295,
-    rely=0.5,
-    height=30
-)
+    T.place(rely=0.31, relx=0.743, anchor='center', height=29)
+    exit_button.place(
+        relx=0.295,
+        rely=0.5,
+        height=30
+    )
 
-root.mainloop()
-
+    root.mainloop()
