@@ -43,7 +43,7 @@ def launch():
 
 def mbox():
     messagebox.showinfo("Éxécution",
-                        "Téléchargement des ressources et lancement du jeu, le launcher va dfreeze le temps du "
+                        "Téléchargement des ressources et lancement du jeu, le launcher va freeze le temps du "
                         "téléchargement puis le jeu va ce lancer.")
 
 
