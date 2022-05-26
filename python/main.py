@@ -55,7 +55,7 @@ if os.path.exists(path9):
     frame1 = Frame(root)
     frame2 = Frame(root)
     root.title("Tropixeel Launcher")
-    root.geometry('600x300')
+    root.geometry('900x600')
 
     bg = PhotoImage(file="bg.png")
 
@@ -64,28 +64,35 @@ if os.path.exists(path9):
 
     root.resizable(False, False)
 
-    T = Text(root, height=1, width=20, )
+    T = Text(root, height=2, width=40)
+
 
     # Create label
 
-    # exit button
+    # exit button.
+
     exit_button = Button(
         root,
+        width=20,
         text='Lancer!',
+
         command=lambda: launch()
     )
 
-    T.place(rely=0.31, relx=0.743, anchor='center', height=29)
+    T.place(rely=0.932, relx=0.59, anchor='center', height=65)
+    T.configure(font=("Calibri", 12, "bold"))
+
+
     exit_button.place(
-        relx=0.295,
-        rely=0.5,
-        height=30
+        relx=0.81,
+        rely=0.89,
+        height=60,
+
     )
 
     root.mainloop()
 
-if os.path.exists(path):
-
+elif os.path.exists(path):
     directory1 = "Minecraft"
     parent_dir1 = "C:/TropixeelLauncher"
     path3 = os.path.join(parent_dir1, directory1)
@@ -103,7 +110,7 @@ if os.path.exists(path):
 
     root.resizable(False, False)
 
-    T = Text(root, height=1, width=20, )
+    T = Text(root, height=1, width=20)
 
     # Create label
 
@@ -122,6 +129,7 @@ if os.path.exists(path):
     )
 
     root.mainloop()
+
 
 else:
     directory = "TropixeelLauncher"
@@ -164,3 +172,4 @@ else:
     )
 
     root.mainloop()
+
