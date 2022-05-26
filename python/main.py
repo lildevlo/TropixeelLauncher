@@ -42,7 +42,8 @@ def launch():
 
 
 def mbox():
-    messagebox.showinfo("Éxécution", "Téléchargement des ressources et lancement du jeu, le launcher va dfreeze le temps du téléchargement puis le jeu va ce lancer.")
+    messagebox.showinfo("Éxécution",
+                        "Téléchargement des ressources et lancement du jeu, le launcher va dfreeze le temps du téléchargement puis le jeu va ce lancer.")
 
 
 path = "C:/TropixeelLauncher"
@@ -52,29 +53,31 @@ if os.path.exists(path):
     frame1 = Frame(root)
     frame2 = Frame(root)
     root.title("Tropixeel Launcher")
-    root.geometry('300x150')
-    root.resizable(False, False)
-    root.configure(bg='lightgray')
+    root.geometry('600x300')
 
-    T = Text(root, height=1, width=52)
+    bg = PhotoImage(file="bg.png")
+
+    label1 = Label(root, image=bg)
+    label1.place(x=0, y=0)
+
+    root.resizable(False, False)
+
+    T = Text(root, height=1, width=20, )
 
     # Create label
-    l = Label(root, text="Pseudo :")
 
-    l.config(font=("Calibri", 14))
     # exit button
     exit_button = Button(
         root,
-        text='lancer',
+        text='Lancer!',
         command=lambda: launch()
     )
 
-    l.pack()
-    T.pack()
-    exit_button.pack(
-        ipadx=3,
-        ipady=6,
-        expand=True
+    T.place(rely=0.31, relx=0.743, anchor='center', height=29)
+    exit_button.place(
+        relx=0.295,
+        rely=0.5,
+        height=30
     )
 
     root.mainloop()
@@ -82,4 +85,36 @@ if os.path.exists(path):
 
 else:
     createBaseFolder()
-    downloadAndExtract()
+root = Tk()
+frame1 = Frame(root)
+frame2 = Frame(root)
+root.title("Tropixeel Launcher")
+root.geometry('600x300')
+
+bg = PhotoImage(file="bg.png")
+
+label1 = Label(root, image=bg)
+label1.place(x=0, y=0)
+
+root.resizable(False, False)
+
+T = Text(root, height=1, width=20, )
+
+# Create label
+
+# exit button
+exit_button = Button(
+    root,
+    text='Lancer!',
+    command=lambda: launch()
+)
+
+T.place(rely=0.31, relx=0.743, anchor='center', height=29)
+exit_button.place(
+    relx=0.295,
+    rely=0.5,
+    height=30
+)
+
+root.mainloop()
+
