@@ -1,0 +1,15 @@
+package fr.liltray.trlauncher;
+
+public class MainFrame {
+
+	public static void main(String[] args) {
+		if(System.getProperty("os.name").startsWith("Linux")){
+			System.out.println("oui");
+		}
+
+	}
+	
+
+	 
+
+}

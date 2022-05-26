@@ -1,0 +1,67 @@
+package fr.liltray.trlauncher;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+public class Infos {
+	
+	public static void FilesLocations(){
+		if (System.getProperty("os.name").startsWith("Windows")){
+			new File("C:/TropixeelLauncher").mkdirs();
+			new File("C:/TropixeelLauncher/Minecraft").mkdirs();
+			
+		   
+		}
+	}
+	 public static void downloadZipFile() {
+	        String saveTo = "C:/TropixeelLauncher/";
+	        try {
+	            URL url = new URL("https://download2279.mediafire.com/a6g2mbiil1xg/h7p0gm3s3hbsawh/resources.zip");
+	            URLConnection conn = url.openConnection();
+	            InputStream in = conn.getInputStream();
+	            FileOutputStream out = new FileOutputStream(saveTo + "launcherfiles.zip");
+	            byte[] b = new byte[1024];
+	            int count;
+	            while ((count = in.read(b)) >= 0) {
+	                out.write(b, 0, count);
+	            }
+	            out.flush(); out.close(); in.close();                   
+	 
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	 
+	 public static void extractzipfile() throws IOException{
+		  String fileName = "C:/TropixeelLauncher/launcherfiles.zip";
+		  Path path = Paths.get(fileName);
+		  long bytes = Files.size(path);
+		do{
+			if(bytes>=33373000){
+				break;
+			}
+		}while(bytes>=33373000);
+		 
+	
+		  String fileZip = "C:/TropixeelLauncher/launcherfiles.zip";
+	        File destDir = new File("C:/TropixeelLauncher/Minecraft");
+	        byte[] buffer = new byte[1024];
+	        ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
+	        ZipEntry zipEntry = zis.getNextEntry();
+	        while (zipEntry != null) {
+	           // ...
+	        }
+	        zis.closeEntry();
+	        zis.close();
+	 }
+	}

@@ -1,10 +1,14 @@
 package fr.liltray.trlauncher;
 
+import java.io.File;
+import java.io.IOException;
+
 public class MainFrame {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws IOException {
+		Methods.FilesLocations();
+		Methods.downloadZipFile();
+		Methods.extractzipfile();
+	   }  
 	}
 
-}

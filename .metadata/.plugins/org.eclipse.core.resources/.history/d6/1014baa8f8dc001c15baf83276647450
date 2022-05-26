@@ -1,0 +1,8 @@
+package fr.liltray.trlauncher;
+
+public class MainFrame {
+
+	public static void main(String[] args) {
+	Infos.FilesLocations();
+	}
+}

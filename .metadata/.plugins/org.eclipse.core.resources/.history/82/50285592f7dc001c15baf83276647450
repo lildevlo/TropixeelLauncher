@@ -1,0 +1,26 @@
+package fr.liltray.trlauncher;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class MainFrame {
+
+	public static void main(String[] args) {
+		if (System.getProperty("os.name").startsWith("Windows")){
+			Path path3 = Paths.get("/home/mkyong/test/soft-link");
+	        System.out.println("\n[Path] : " + path3);
+	        printPath(path3);
+		}
+
+
+	}
+
+	private static void printPath(Path path3) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	 
+
+}

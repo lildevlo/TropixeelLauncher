@@ -1,0 +1,13 @@
+package fr.liltray.trlauncher;
+
+
+
+public class Infos {
+	
+	public static void FilesLocations(){
+		if (System.getProperty("os.name").startsWith("Windows")){
+			
+		}
+	}
+
+}

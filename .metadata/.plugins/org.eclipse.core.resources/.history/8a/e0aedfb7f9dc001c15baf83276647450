@@ -1,0 +1,14 @@
+package fr.liltray.trlauncher;
+
+import java.io.File;
+
+public class Infos {
+	
+	public static void FilesLocations(){
+		if (System.getProperty("os.name").startsWith("Windows")){
+			new File("%appdata%/.tropixeel").mkdirs();
+		   
+		}
+	}
+
+}
