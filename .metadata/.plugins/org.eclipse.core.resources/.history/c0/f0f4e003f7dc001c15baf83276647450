@@ -1,9 +1,0 @@
-package fr.liltray.trlauncher;
-
-public class Infos {
-	
-	public static void FilesLocations(){
-		 System.getProperties().list(System.out);
-	}
-
-}
