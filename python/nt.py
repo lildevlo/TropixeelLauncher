@@ -17,22 +17,22 @@ def createBaseFolder():
 
 def downloadAndExtract():
     # Defining the zip file URL
-    url = 'http://filetropixeel.duckdns.org/rescources.zip'
+    url = 'http://filetropixeel.duckdns.org/resources.zip'
 
-    # Split URL to get the file name
+    print("Récupération de l'URL")
     filename = url.split('/')[-1]
 
-    # Downloading the file by sending the request to the URL
+    print("Envoi d'une requète HTTP et téléchargement")
     req = requests.get(url)
 
-    # extracting the zip file contents
+    print("Téléchargement")
     zipfile = ZipFile(BytesIO(req.content))
     zipfile.extractall('C:/TropixeelLauncher/Minecraft')
 
 
 def launch():
     res = T.get("1.0", "end")
-    print(res)
+    print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
     mbox()
