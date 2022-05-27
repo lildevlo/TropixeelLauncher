@@ -45,27 +45,63 @@ def downloadAndExtractMod():
     zipfile.extractall('C:/TropixeelLauncher/Minecraft')
 
 
+def downloadAndExtractOnlyMod():
+    # Defining the zip file URL
+    url = 'http://filetropixeel.duckdns.org/resourcesMod.zip'
+
+    print("Récupération de l'URL")
+    filename = url.split('/')[-1]
+
+    print("Envoi d'une requète HTTP et téléchargement")
+    req = requests.get(url)
+
+    print("Extraction")
+    zipfile = ZipFile(BytesIO(req.content))
+    zipfile.extractall('C:/TropixeelLauncher/Minecraft')
+
+
 def launchMod():
+    path56 = "C:/TropixeelLauncher/Minecraft1-18"
+    path96 = "C:/TropixeelLauncher/Minecraft1-18/assets"
+    path896 = "C:/TropixeelLauncher/Minecraft1-18/libraries"
     res = T.get("1.0", "end")
     print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
-    mbox()
-    downloadAndExtractMod()
+    if os.path.exists(path96) & os.path.exists(path896):
+        messagebox.showinfo("Éxécution",
+                            "Vérification des mods et lancement du jeu")
+        downloadAndExtractOnlyMod()
+        subprocess.call([r'C:\TropixeelLauncher\Minecraft\gs.bat'])
+        exit(0)
+    else:
+        mbox()
+        downloadAndExtractMod()
+        subprocess.call([r'C:\TropixeelLauncher\Minecraft\gs.bat'])
+        exit(0)
 
-    subprocess.call([r'C:\TropixeelLauncher\Minecraft\gs.bat'])
-    exit(0)
+
+
 
 def launchVani():
+    path99 = "C:/TropixeelLauncher/Minecraft1-18/assets"
+    path89 = "C:/TropixeelLauncher/Minecraft1-18/libraries"
     res = T.get("1.0", "end")
     print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft1-18/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
-    mbox()
-    downloadAndExtractVani()
 
-    subprocess.call([r'C:\TropixeelLauncher\Minecraft1-18\gs18.bat'])
-    exit(0)
+    if os.path.exists(path99) & os.path.exists(path89):
+        subprocess.call([r'C:\TropixeelLauncher\Minecraft1-18\gs18.bat'])
+        messagebox.showinfo("Éxécution",
+                            "Fichiers déjà téléchargés, lancement du jeu.")
+        exit(0)
+    else:
+        mbox()
+        downloadAndExtractVani()
+
+        subprocess.call([r'C:\TropixeelLauncher\Minecraft1-18\gs18.bat'])
+        exit(0)
 
 
 def mbox():
