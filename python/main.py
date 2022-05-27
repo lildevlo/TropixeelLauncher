@@ -130,6 +130,8 @@ if os.path.exists(path9) & os.path.exists(path5):
     frame2 = Frame(root)
     root.title("Tropixeel Launcher")
     root.geometry('900x600')
+    p1 = PhotoImage(file='title222.png')
+    root.iconphoto(False, p1)
 
     bg = PhotoImage(file="bg.png")
 
@@ -192,7 +194,8 @@ elif os.path.exists(path):
     frame2 = Frame(root)
     root.title("Tropixeel Launcher")
     root.geometry('900x600')
-
+    p1 = PhotoImage(file='title222.png')
+    root.iconphoto(False, p1)
     bg = PhotoImage(file="bg.png")
 
     label1 = Label(root, image=bg)
@@ -257,7 +260,8 @@ else:
     frame2 = Frame(root)
     root.title("Tropixeel Launcher")
     root.geometry('900x600')
-
+    p1 = PhotoImage(file='title222.png')
+    root.iconphoto(False, p1)
     bg = PhotoImage(file="bg.png")
 
     label1 = Label(root, image=bg)
