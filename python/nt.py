@@ -6,6 +6,7 @@ import os.path
 import subprocess
 from tkinter import *
 from tkinter import messagebox
+from shutil import *
 
 
 def createBaseFolder():
@@ -25,6 +26,7 @@ def downloadAndExtractVani():
     print("Envoi d'une requète HTTP et téléchargement")
     req = requests.get(url)
 
+
     print("Extraction")
     zipfile = ZipFile(BytesIO(req.content))
     zipfile.extractall('C:/TropixeelLauncher/Minecraft1-18')
@@ -39,6 +41,7 @@ def downloadAndExtractMod():
 
     print("Envoi d'une requète HTTP et téléchargement")
     req = requests.get(url)
+    rmtree("C:/TropixeelLauncher/Minecraft/")
 
     print("Extraction")
     zipfile = ZipFile(BytesIO(req.content))
@@ -55,20 +58,25 @@ def downloadAndExtractOnlyMod():
     print("Envoi d'une requète HTTP et téléchargement")
     req = requests.get(url)
 
+    rmtree("C:/TropixeelLauncher/Minecraft/mods")
+
     print("Extraction")
     zipfile = ZipFile(BytesIO(req.content))
+
     zipfile.extractall('C:/TropixeelLauncher/Minecraft')
 
 
 def launchMod():
-    path56 = "C:/TropixeelLauncher/Minecraft1-18"
-    path96 = "C:/TropixeelLauncher/Minecraft1-18/assets"
-    path896 = "C:/TropixeelLauncher/Minecraft1-18/libraries"
+    path96 = "C:/TropixeelLauncher/Minecraft/assets"
+    path987 = "C:/TropixeelLauncher/Minecraft/libraries"
+    path885 = "C:/TropixeelLauncher/Minecraft/versions"
+    path835 = "C:/TropixeelLauncher/Minecraft/runtime"
     res = T.get("1.0", "end")
     print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
-    if os.path.exists(path96) & os.path.exists(path896):
+
+    if os.path.exists(path96) & os.path.exists(path987) & os.path.exists(path885) & os.path.exists(path835):
         messagebox.showinfo("Éxécution",
                             "Vérification des mods et lancement du jeu")
         downloadAndExtractOnlyMod()
@@ -81,17 +89,18 @@ def launchMod():
         exit(0)
 
 
-
-
 def launchVani():
-    path99 = "C:/TropixeelLauncher/Minecraft1-18/assets"
-    path89 = "C:/TropixeelLauncher/Minecraft1-18/libraries"
+    path96 = "C:/TropixeelLauncher/Minecraft1-18/assets"
+    path987 = "C:/TropixeelLauncher/Minecraft1-18/libraries"
+    path885 = "C:/TropixeelLauncher/Minecraft1-18/versions"
+    path835 = "C:/TropixeelLauncher/Minecraft1-18/runtime"
+
     res = T.get("1.0", "end")
     print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft1-18/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
 
-    if os.path.exists(path99) & os.path.exists(path89):
+    if os.path.exists(path96) & os.path.exists(path987) & os.path.exists(path885) & os.path.exists(path835):
         subprocess.call([r'C:\TropixeelLauncher\Minecraft1-18\gs18.bat'])
         messagebox.showinfo("Éxécution",
                             "Fichiers déjà téléchargés, lancement du jeu.")
