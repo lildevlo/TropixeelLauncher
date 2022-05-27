@@ -15,7 +15,22 @@ def createBaseFolder():
     os.mkdir(path268)
 
 
-def downloadAndExtract():
+def downloadAndExtractVani():
+    # Defining the zip file URL
+    url = 'http://filetropixeel.duckdns.org/resources18.zip'
+
+    print("Récupération de l'URL")
+    filename = url.split('/')[-1]
+
+    print("Envoi d'une requète HTTP et téléchargement")
+    req = requests.get(url)
+
+    print("Extraction")
+    zipfile = ZipFile(BytesIO(req.content))
+    zipfile.extractall('C:/TropixeelLauncher/Minecraft1-18')
+
+
+def downloadAndExtractMod():
     # Defining the zip file URL
     url = 'http://filetropixeel.duckdns.org/resources.zip'
 
@@ -25,20 +40,31 @@ def downloadAndExtract():
     print("Envoi d'une requète HTTP et téléchargement")
     req = requests.get(url)
 
-    print("Téléchargement")
+    print("Extraction")
     zipfile = ZipFile(BytesIO(req.content))
     zipfile.extractall('C:/TropixeelLauncher/Minecraft')
 
 
-def launch():
+def launchMod():
     res = T.get("1.0", "end")
     print("ok mv tu es " + res)
     with open('C:/TropixeelLauncher/Minecraft/nick.txt', 'w') as f:
         f.write(T.get("1.0", "end"))
     mbox()
-    downloadAndExtract()
+    downloadAndExtractMod()
 
     subprocess.call([r'C:\TropixeelLauncher\Minecraft\gs.bat'])
+    exit(0)
+
+def launchVani():
+    res = T.get("1.0", "end")
+    print("ok mv tu es " + res)
+    with open('C:/TropixeelLauncher/Minecraft1-18/nick.txt', 'w') as f:
+        f.write(T.get("1.0", "end"))
+    mbox()
+    downloadAndExtractVani()
+
+    subprocess.call([r'C:\TropixeelLauncher\Minecraft1-18\gs18.bat'])
     exit(0)
 
 
@@ -50,8 +76,9 @@ def mbox():
 
 path = "C:/TropixeelLauncher"
 path9 = "C:/TropixeelLauncher/Minecraft"
+path5 = "C:/TropixeelLauncher/Minecraft1-18"
 
-if os.path.exists(path9):
+if os.path.exists(path9) & os.path.exists(path5):
     print("coucou mv")
     root = Tk()
     frame1 = Frame(root)
@@ -74,16 +101,29 @@ if os.path.exists(path9):
 
     exit_button = Button(
         root,
-        width=20,
-        text='Lancer!',
+        width=10,
+        text='>Moddé 1.12!',
 
-        command=lambda: launch()
+        command=lambda: launchMod()
+    )
+    exit_button2 = Button(
+        root,
+        width=10,
+        text='>Vanilla 1.18!',
+
+        command=lambda: launchVani()
     )
 
     T.place(rely=0.932, relx=0.59, anchor='center', height=65)
     T.configure(font=("Calibri", 12, "bold"))
 
     exit_button.place(
+        relx=0.9,
+        rely=0.89,
+        height=60,
+
+    )
+    exit_button2.place(
         relx=0.81,
         rely=0.89,
         height=60,
@@ -97,6 +137,10 @@ elif os.path.exists(path):
     parent_dir1 = "C:/TropixeelLauncher"
     path3 = os.path.join(parent_dir1, directory1)
     os.mkdir(path3)
+    directory6 = "Minecraft1-18"
+    parent_dir6 = "C:/TropixeelLauncher"
+    path4 = os.path.join(parent_dir6, directory6)
+    os.mkdir(path4)
     print("coucou mv")
     root = Tk()
     frame1 = Frame(root)
@@ -119,16 +163,29 @@ elif os.path.exists(path):
 
     exit_button = Button(
         root,
-        width=20,
-        text='Lancer!',
+        width=10,
+        text='>Moddé 1.12!',
 
-        command=lambda: launch()
+        command=lambda: launchMod()
+    )
+    exit_button2 = Button(
+        root,
+        width=10,
+        text='>Vanilla 1.18!',
+
+        command=lambda: launchVani()
     )
 
     T.place(rely=0.932, relx=0.59, anchor='center', height=65)
     T.configure(font=("Calibri", 12, "bold"))
 
     exit_button.place(
+        relx=0.9,
+        rely=0.89,
+        height=60,
+
+    )
+    exit_button2.place(
         relx=0.81,
         rely=0.89,
         height=60,
@@ -136,8 +193,6 @@ elif os.path.exists(path):
     )
 
     root.mainloop()
-
-
 else:
     directory = "TropixeelLauncher"
     parent_dir = "C:/"
@@ -147,6 +202,10 @@ else:
     parent_dir1 = "C:/TropixeelLauncher"
     path3 = os.path.join(parent_dir1, directory1)
     os.mkdir(path3)
+    directory6 = "Minecraft1-18"
+    parent_dir6 = "C:/TropixeelLauncher"
+    path4 = os.path.join(parent_dir6, directory6)
+    os.mkdir(path4)
     print("coucou mv")
     root = Tk()
     frame1 = Frame(root)
@@ -169,16 +228,29 @@ else:
 
     exit_button = Button(
         root,
-        width=20,
-        text='Lancer!',
+        width=10,
+        text='>Moddé 1.12!',
 
-        command=lambda: launch()
+        command=lambda: launchMod()
+    )
+    exit_button2 = Button(
+        root,
+        width=10,
+        text='>Vanilla 1.18!',
+
+        command=lambda: launchVani()
     )
 
     T.place(rely=0.932, relx=0.59, anchor='center', height=65)
     T.configure(font=("Calibri", 12, "bold"))
 
     exit_button.place(
+        relx=0.9,
+        rely=0.89,
+        height=60,
+
+    )
+    exit_button2.place(
         relx=0.81,
         rely=0.89,
         height=60,
