@@ -7,6 +7,7 @@ import subprocess
 from tkinter import *
 from tkinter import messagebox
 
+
 def createBaseFolder():
     directory9 = "TropixeelLauncher"
     parent_dir9 = "C:/"
@@ -16,7 +17,7 @@ def createBaseFolder():
 
 def downloadAndExtract():
     # Defining the zip file URL
-    url = 'http://85.169.118.199/resources.zip'
+    url = 'http://filetropixeel.duckdns.org/rescources.zip'
 
     # Split URL to get the file name
     filename = url.split('/')[-1]
@@ -67,7 +68,6 @@ if os.path.exists(path9):
 
     T = Text(root, height=2, width=40)
 
-
     # Create label
 
     # exit button.
@@ -82,7 +82,6 @@ if os.path.exists(path9):
 
     T.place(rely=0.932, relx=0.59, anchor='center', height=65)
     T.configure(font=("Calibri", 12, "bold"))
-
 
     exit_button.place(
         relx=0.81,
@@ -187,4 +186,3 @@ else:
     )
 
     root.mainloop()
-
