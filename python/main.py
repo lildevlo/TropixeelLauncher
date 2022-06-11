@@ -116,7 +116,7 @@ def launchVani():
 def mbox():
     messagebox.showinfo("Éxécution",
                         "Téléchargement des ressources et lancement du jeu, le launcher va freeze le temps du "
-                        "téléchargement puis le jeu va ce lancer.")
+                        "téléchargement puis le jeu va se lancer.")
 
 
 path = "C:/TropixeelLauncher"
